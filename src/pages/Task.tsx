@@ -32,6 +32,12 @@ const Task = (props:{name:string}) => {
   const onTitleChanged =(event:any)  =>{
     dispatch(taskedit({id:submitted.id, description:submitted.description, status:submitted.status, title:event}));
   } 
+  const onDescriptionChanged =(event:any)  =>{
+    dispatch(taskedit({id:submitted.id, description:event, status:submitted.status, title:submitted.title}));
+  } 
+  const onStatusChanged =(event:any)  =>{
+    dispatch(taskedit({id:submitted.id, description:submitted.description, status:event, title:submitted.title}));
+  } 
 
  const submit=async(e:SyntheticEvent)=>{
       e.preventDefault();
@@ -87,12 +93,12 @@ const Task = (props:{name:string}) => {
               </div>
               <div className="mb-3">
                 <label htmlFor="txtinputDescription" className="form-label">Description</label>
-                <input type="text" className="form-control"  id="txtinputDescription" placeholder="Description"  value={description} required onChange={(e)=>{setDescription(e.target.value)}}   />
+                <input type="text" className="form-control"  id="txtinputDescription" placeholder="Description"  value={description} required onChange={(e)=>{onDescriptionChanged(e.target.value)}}   />
               </div>
               <div className="mb-3">
                 <label htmlFor="selectStatus" className="form-label">Status</label>
                
-                <select className="form-select" aria-label="Default select example" id="selectStatus"  value={status} onChange={(e)=>{setStatus(e.target.value)}} required  >
+                <select className="form-select" aria-label="Default select example" id="selectStatus"  value={status} onChange={(e)=>{onStatusChanged(e.target.value)}} required  >
                     <option value="">Select Status</option>
                     <option value="pending">Pending</option>
                     <option value="in-progress">In-Progress</option>

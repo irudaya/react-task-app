@@ -50,17 +50,17 @@ const TaskList= (props:{name:string} )  =>{
         show: false
       },
       {
-        Header: "title",
+        Header: "Title",
         accessor: "title"
       }
       ,
       {
-        Header: "description",
+        Header: "Description",
         accessor: "description"
       }
       ,
       {
-        Header: "status",
+        Header: "Status",
         accessor: "status"
       },
       {
